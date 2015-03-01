@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Jest by kramer</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/kramer/Jest">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Jest</h1>
+            <h2>ElasticSearch Java Rest Client.</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/kramer/Jest/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/kramer/Jest/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="jest" class="anchor" href="#jest" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jest</h1>
+
+<p><a href="http://travis-ci.org/searchbox-io/Jest"><img src="https://secure.travis-ci.org/searchbox-io/Jest.png" alt="build status"></a>
+<a href="https://coveralls.io/r/searchbox-io/Jest?branch=master"><img src="https://coveralls.io/repos/searchbox-io/Jest/badge.png?branch=master" alt="Coverage Status"></a></p>
+
+<p>Jest is a Java HTTP Rest client for <a href="http://www.elasticsearch.org">ElasticSearch</a>.</p>
+
+<p>ElasticSearch is an Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Apache Lucene.</p>
+
+<p>ElasticSearch already has a Java API which is also used by ElasticSearch internally, <a href="#comparison-to-native-api">but Jest fills a gap, it is the missing client for ElasticSearch Http Rest interface</a>.</p>
+
+<blockquote>
+<p>Read great <a href="http://www.ibm.com/developerworks/java/library/j-javadev2-24/index.html?ca=drs-">introduction</a> to ElasticSearch and Jest from IBM Developer works.</p>
+</blockquote>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>For the usual Jest Java library, that you can use as a maven dependency, please refer to <a href="https://github.com/searchbox-io/Jest/tree/master/jest">the README at jest module</a>.</p>
+
+<p>For the Android port please refer to <a href="https://github.com/searchbox-io/Jest/tree/master/jest-droid">the README at jest-droid module</a>.</p>
+
+<h2>
+<a id="compatibility" class="anchor" href="#compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compatibility</h2>
+
+<table>
+<thead>
+<tr>
+<th>Jest Version</th>
+<th>Elasticsearch Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;= 0.1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>&lt;= 0.0.6</td>
+<td>&lt; 1.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>Also see <a href="https://github.com/searchbox-io/Jest/wiki/Changelog">changelog</a> for detailed version history.</p>
+
+<h2>
+<a id="comparison-to-native-api" class="anchor" href="#comparison-to-native-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="comparison"></a>Comparison to native API</h2>
+
+<blockquote>
+<p>There are several alternative clients available when working with ElasticSearch from Java, like Jest that provides a POJO marshalling mechanism on indexing and for the search results. In this example we are using the Client that is included in ElasticSearch. By default the client doesn't use the REST API but connects to the cluster as a normal node that just doesn't store any data. It knows about the state of the cluster and can route requests to the correct node but supposedly consumes more memory. For our application this doesn't make a huge difference but for production systems that's something to think about.
+-- <a href="http://blog.florian-hopf.de/2013/05/getting-started-with-elasticsearch-part.html">Florian Hopf</a></p>
+</blockquote>
+
+
+
+<blockquote>
+<p>So if you have several ES clusters running different versions, then using the native (or transport) client will be a problem, and you will need to go HTTP (and Jest is the main option I think). If versioning is not an issue, the native client will be your best option as it is cluster aware (thus knows how to route your queries and does not need another hop), and also moves some computation away from your ES cluster (like merging search results that will be done locally instead of on the data node).
+-- <a href="http://www.quora.com/ElasticSearch/What-is-the-best-client-library-for-elasticsearch">Rotem Hermon</a></p>
+</blockquote>
+
+
+
+<blockquote>
+<p>ElasticSearch does not have Java rest client. It has only native client comes built in. That is the gap. You can add security layer to HTTP but native API. That is why none of SAAS offerings can be used with native api.
+-- <a href="https://twitter.com/searchboxio">Searchly</a></p>
+</blockquote>
+
+<h2>
+<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Thanks</h2>
+
+<p>Thanks to <a href="http://www.jetbrains.com/">JetBrains</a> for providing a license for <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> to develop this project.</p>
+
+<p>We also would like to thank the following people for their significant contributions.</p>
+
+<ul>
+<li><a href="https://github.com/andreaturli">Andrea Turli</a></li>
+<li><a href="https://github.com/asierdelpozo">asierdelpozo</a></li>
+<li><a href="https://github.com/tootedom">Dominic Tootell</a></li>
+<li><a href="https://github.com/eschuchmann">Erik Schuchmann</a></li>
+<li><a href="https://github.com/filippor">Filippo Rossoni</a></li>
+<li><a href="https://github.com/happyprg">happyprg</a></li>
+<li><a href="https://github.com/puszczyk">Igor Kupczyński</a></li>
+<li><a href="https://github.com/renholm">Kristoffer Renholm</a></li>
+<li><a href="https://github.com/markwoon">Mark Woon</a></li>
+<li><a href="https://github.com/MinCha">Min Cha</a></li>
+<li><a href="https://github.com/nigelzor">Neil Gentleman</a></li>
+<li><a href="https://github.com/phospodka">phospodka</a></li>
+<li><a href="https://github.com/srapp">Steven Rapp</a></li>
+<li><a href="https://github.com/stig">Stig Brautaset</a></li>
+</ul>
+
+<h2>
+<a id="copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h2>
+
+<p>Copyright 2013 <a href="http://www.searchly.com">www.searchly.com</a></p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in
+compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:</p>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is
+distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/kramer">kramer</a> can be found on <a href="https://github.com/kramer/Jest">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
